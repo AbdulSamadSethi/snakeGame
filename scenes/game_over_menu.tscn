@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://gwudpneh0jh0"]
+
+[ext_resource type="FontFile" uid="uid://djxpd2lqbkllx" path="res://assets/MaldiniBold.ttf" id="1_5h3he"]
+[ext_resource type="Script" path="res://scenes/game_over_menu.gd" id="1_5jhen"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_am2to"]
+bg_color = Color(0.452195, 0.251487, 0.469772, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go0l8"]
+bg_color = Color(0.903944, 0.439814, 0.403211, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5tdu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2okmj"]
+bg_color = Color(0.899188, 0.438448, 0.399842, 1)
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_5jhen")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+offset_left = 300.0
+offset_top = 400.0
+offset_right = 700.0
+offset_bottom = 650.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_am2to")
+
+[node name="ResultLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.505
+anchor_top = 0.478
+anchor_right = 0.505
+anchor_bottom = 0.478
+offset_left = -88.0
+offset_top = -76.9
+offset_right = 93.0
+offset_bottom = -21.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_5h3he")
+theme_override_font_sizes/font_size = 40
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = 19.0
+offset_right = 124.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_5h3he")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_go0l8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b5tdu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2okmj")
+text = "Play Again?"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
